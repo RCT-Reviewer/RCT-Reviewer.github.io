@@ -636,12 +636,9 @@
 
             <hr class="divider" role="separator">
 
-            <section id="video" aria-label="Video demonstration">
-                <video controls muted loop playsinline id="content-video" class="content-video">
-                    <source src="assets/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </section>
+<section id="video" aria-label="Video demonstration">
+    <img src="assets/banner1.png" alt="RCT-Reviewer banner" class="content-video">
+</section>
 
             <hr class="divider" role="separator">
 
@@ -751,24 +748,6 @@
 
     <script>
         (function () {
-            var v = document.getElementById('content-video');
-            if (v) {
-                v.playbackRate = 1.5;
-
-
-                var observer = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            v.play();
-                        } else {
-                            v.pause();
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                observer.observe(v);
-            }
-
             var citations = {
                 rct: {
                     apa: "Sahu, V. (2026). RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs). Zenodo. https://doi.org/10.5281/zenodo.20618338",
