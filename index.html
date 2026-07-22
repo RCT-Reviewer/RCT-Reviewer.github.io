@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RCT-Reviewer – Risk of Bias Assessment of RCTs</title>
+
+
+    <meta name="description"
+        content="RCT-Reviewer is a modernized, standalone version of RobotReviewer, designed as a third-party reference tool for Risk of Bias assessment. It builds upon RobotReviewer's original machine learning models trained on 12,808 randomized controlled trials (RCTs).">
+    <meta name="keywords"
+        content="RCT-Reviewer, risk of bias assessment, RoB assessment, RoB 2, robotreviewer, RobotReviewer, automated risk of bias, systematic review tool, Cochrane risk of bias, clinical trial bias assessment, randomized controlled trial analysis, meta-analysis tool, evidence synthesis, automated systematic review, bias detection clinical trials, machine learning risk of bias, biomedical NLP, clinical trial quality appraisal, RoB automated tool, Cochrane RoB tool, research methodology tool, automated evidence synthesis, PDF bias extractor, RoB 2 automated, clinical trial risk of bias AI, systematic review automation, medical informatics">
+    <meta name="author" content="Vihaan Sahu">
+    <meta name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, max-image-index:large, archive">
+    <meta name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, max-image-index:large">
+    <meta name="bingbot" content="index, follow, max-image-preview:large">
+    <meta name="yandex" content="index, follow">
+    <meta name="dc.title" content="RCT-Reviewer – Risk of Bias Assessment of RCTs">
+    <meta name="dc.creator" content="Vihaan Sahu">
+    <meta name="dc.subject"
+        content="Risk of Bias Assessment, Systematic Review, Randomized Controlled Trials, Evidence Synthesis">
+    <meta name="dc.description"
+        content="Automated Risk of Bias assessment tool for Randomized Controlled Trials, built for systematic reviewers and meta-analysis researchers.">
+    <meta name="dc.type" content="Software">
+    <meta name="dc.language" content="en">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="3 days">
+    <meta name="language" content="English">
+    <meta name="geo.placename" content="Global">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+
+
+    <link rel="canonical" href="https://rct-reviewer.github.io/">
+
+
+    <link rel="alternate" hreflang="en" href="https://rct-reviewer.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://rct-reviewer.github.io/">
+
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="home" href="https://rct-reviewer.github.io/">
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RCT-Reviewer">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="RCT-Reviewer – Risk of Bias Assessment of RCTs">
+    <meta property="og:description"
+        content="RCT-Reviewer is a modernized, standalone version of RobotReviewer, designed as a third-party reference tool for Risk of Bias assessment. It builds upon RobotReviewer's original machine learning models trained on 12,808 randomized controlled trials (RCTs).">
+    <meta property="og:url" content="https://rct-reviewer.github.io/">
+    <meta property="og:image" content="https://rct-reviewer.github.io/assets/banner1.png">
+    <meta property="og:image:secure_url" content="https://rct-reviewer.github.io/assets/banner1.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt"
+        content="RCT-Reviewer — automated Risk of Bias assessment tool for randomized controlled trials">
+    <meta property="og:image" content="https://rct-reviewer.github.io/assets/banner11.png">
+    <meta property="og:image:alt" content="RCT-Reviewer banner">
+    <meta property="og:video" content="https://rct-reviewer.github.io/assets/video.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+    <meta property="og:video:alt"
+        content="Demonstration video of RCT-Reviewer performing automated Risk of Bias assessment on a clinical trial PDF">
+
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RCT-Reviewer – Risk of Bias Assessment of RCTs">
+    <meta name="twitter:description"
+        content="RCT-Reviewer is a modernized, standalone version of RobotReviewer, designed as a third-party reference tool for Risk of Bias assessment. It builds upon RobotReviewer's original machine learning models trained on 12,808 randomized controlled trials (RCTs)">
+    <meta name="twitter:image" content="https://rct-reviewer.github.io/assets/banner1.png">
+    <meta name="twitter:image:alt" content="RCT-Reviewer — automated Risk of Bias assessment tool">
+    <meta name="twitter:player" content="https://rct-reviewer.github.io/assets/video.mp4">
+    <meta name="twitter:player:width" content="1280">
+    <meta name="twitter:player:height" content="720">
+
+
+
+
+
+    <script type="application/ld+json">
+    {
+       <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vihaan Sahu",
+    "url": "https://rct-reviewer.github.io/",
+    "sameAs": [
+        "https://github.com/aurumz-rgb"
+    ]
+}
+
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Systematic reviewers, Cochrane contributors, meta-analysis researchers, evidence-synthesis practitioners, clinical trial methodologists, biomedical researchers, medical informatics researchers, PhD students and postdocs in clinical research"
+        },
+        "about": [
+            {"@type": "Thing", "name": "Risk of Bias Assessment"},
+            {"@type": "Thing", "name": "Randomized Controlled Trials"},
+            {"@type": "Thing", "name": "Systematic Review"},
+            {"@type": "Thing", "name": "Meta-Analysis"},
+            {"@type": "Thing", "name": "Evidence Synthesis"},
+            {"@type": "Thing", "name": "Cochrane RoB Tool"},
+            {"@type": "Thing", "name": "Biomedical Natural Language Processing"}
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Vihaan Sahu",
+            "url": "https://github.com/aurumz-rgb"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RCT-Reviewer",
+            "url": "https://rct-reviewer.github.io/"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "RCT-Reviewer",
+            "url": "https://rct-reviewer.github.io/"
+        },
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "isAccessibleForFree": true,
+
+
+        "discussionUrl": "https://github.com/aurumz-rgb/RCT-Reviewer/issues",
+        "softwareHelp": "https://github.com/aurumz-rgb/RCT-Reviewer#readme"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "RCT-Reviewer",
+        "description": "A modernized, standalone version of RobotReviewer for automated Risk of Bias assessment of Randomized Controlled Trials. Built for systematic review and meta-analysis researchers.",
+        "url": "https://rct-reviewer.github.io/",
+        "codeRepository": "https://github.com/aurumz-rgb/RCT-Reviewer",
+        "targetProduct": {
+            "@type": "WebApplication",
+            "name": "RCT-Reviewer Online",
+            "url": "https://rct-reviewer.streamlit.app/"
+        },
+        "programmingLanguage": "Python",
+        "runtimePlatform": "Streamlit",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "author": {
+            "@type": "Person",
+            "name": "Vihaan Sahu",
+            "url": "https://github.com/aurumz-rgb"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs)",
+        "description": "A modernized, standalone version of RobotReviewer for automated Risk of Bias assessment of Randomized Controlled Trials, trained on 12,808 RCT PDFs.",
+        "url": "https://doi.org/10.5281/zenodo.20618338",
+        "creator": {
+            "@type": "Person",
+            "name": "Vihaan Sahu"
+        },
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "isAccessibleForFree": true,
+        "keywords": "risk of bias, randomized controlled trials, systematic review, meta-analysis, evidence synthesis, machine learning, biomedical NLP, RobotReviewer",
+        "distribution": {
+            "@type": "DataDownload",
+            "contentUrl": "https://doi.org/10.5281/zenodo.20618338",
+            "encodingFormat": "application/zip"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://rct-reviewer.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Use Online",
+                "item": "https://rct-reviewer.streamlit.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Source Code",
+                "item": "https://github.com/aurumz-rgb/RCT-Reviewer"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Model on Hugging Face",
+                "item": "https://huggingface.co/Aurumz/RCT-Reviewer"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Zenodo DOI",
+                "item": "https://doi.org/10.5281/zenodo.20618338"
+            }
+        ]
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "RCT-Reviewer — Automated Risk of Bias Assessment Demo",
+        "description": "Demonstration video showing RCT-Reviewer performing automated Risk of Bias assessment on a randomized controlled trial PDF, highlighting bias-supporting evidence snippets.",
+        "thumbnailUrl": [
+            "https://rct-reviewer.github.io/assets/banner1.png",
+            "https://rct-reviewer.github.io/assets/banner11.png"
+        ],
+        
+        "contentUrl": "https://rct-reviewer.github.io/assets/video.mp4",
+        "embedUrl": "https://rct-reviewer.github.io/",
+        "duration": "PT1M",
+        "encodingFormat": "video/mp4",
+        "width": "1280",
+        "height": "720",
+        "isFamilyFriendly": "true",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "creator": {
+            "@type": "Person",
+            "name": "Vihaan Sahu"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RCT-Reviewer",
+            "url": "https://rct-reviewer.github.io/"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "RCT-Reviewer — Primary Banner",
+        "description": "Primary banner image for RCT-Reviewer, automated Risk of Bias assessment of randomized controlled trials.",
+        "url": "https://rct-reviewer.github.io/assets/banner1.png",
+        "contentUrl": "https://rct-reviewer.github.io/assets/banner1.png",
+        "encodingFormat": "image/png",
+        "width": "1200",
+        "height": "630",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "acquireLicensePage": "https://github.com/aurumz-rgb/RCT-Reviewer",
+        "creator": {
+            "@type": "Person",
+            "name": "Vihaan Sahu"
+        },
+        "creditText": "RCT-Reviewer",
+        "copyrightNotice": "© Vihaan Sahu 2026 — GPL v3.0"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "RCT-Reviewer — Feature Banner",
+        "description": "Feature banner for RCT-Reviewer highlighting automated Risk of Bias judgments with 71% accuracy and 87% precision.",
+        "url": "https://rct-reviewer.github.io/assets/banner11.png",
+        "contentUrl": "https://rct-reviewer.github.io/assets/banner11.png",
+        "encodingFormat": "image/png",
+        "width": "1200",
+        "height": "630",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "acquireLicensePage": "https://github.com/aurumz-rgb/RCT-Reviewer",
+        "creator": {
+            "@type": "Person",
+            "name": "Vihaan Sahu"
+        },
+        "creditText": "RCT-Reviewer",
+        "copyrightNotice": "© Vihaan Sahu 2026 — GPL v3.0"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "RCT-Reviewer — Hero Banner",
+        "description": "Transparent hero banner for RCT-Reviewer.",
+        "url": "https://rct-reviewer.github.io/assets/banner_transparent.png",
+        "contentUrl": "https://rct-reviewer.github.io/assets/banner_transparent.png",
+        "encodingFormat": "image/png",
+        "width": "730",
+        "height": "340",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DigitalDocument",
+        "name": "RCT-Reviewer — Sample Bias-Highlighted PDF",
+        "description": "A sample clinical trial PDF with Risk of Bias judgments and supporting evidence snippets highlighted by RCT-Reviewer.",
+        "url": "https://rct-reviewer.github.io/assets/sample_bias.pdf",
+        "contentUrl": "https://rct-reviewer.github.io/assets/sample_bias.pdf",
+        "encodingFormat": "application/pdf",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "creator": {
+            "@type": "Person",
+            "name": "Vihaan Sahu"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is RCT-Reviewer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer is a free, open-source AI tool that performs automated Risk of Bias (RoB) assessment of Randomized Controlled Trials (RCTs). It is a modernized, standalone version of RobotReviewer, trained on 12,808 clinical trial PDFs, and is designed to assist systematic reviewers, Cochrane contributors, and meta-analysis researchers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who should use RCT-Reviewer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer is built for systematic reviewers, Cochrane contributors, meta-analysis researchers, evidence-synthesis practitioners, clinical trial methodologists, biomedical researchers, medical informatics researchers, and PhD students or postdocs conducting clinical research."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate is RCT-Reviewer at assessing Risk of Bias?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer achieves 71.0% accuracy on Risk of Bias judgments, performing within 8% of human expert consensus (which stands at 78.3%). It also demonstrates 87% precision and 90% recall for identifying the exact text snippets that support each bias judgment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does RCT-Reviewer work as a third-party tiebreaker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard systematic-review guidelines require two independent human reviewers. When those two reviewers disagree, RCT-Reviewer provides an instant, objective, data-driven third opinion to help resolve the tie. Real-world feasibility studies show that human reviewers accept the tool's judgments at the same rate they accept their human peers' judgments (Risk Ratio 1.02)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What input does RCT-Reviewer accept?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer accepts clinical trial PDFs. Upload a trial PDF and the tool returns automated Risk of Bias judgments along with the supporting evidence snippets highlighted directly in the document."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is RCT-Reviewer free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. RCT-Reviewer is completely free and open source under the GNU GPL v3.0 license. No signup or account is required. You can use it online or run the source code locally from GitHub."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is RCT-Reviewer related to RobotReviewer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer is a modernized, standalone derivative work of RobotReviewer, originally developed by Marshall, Kuiper, and Wallace. It builds upon RobotReviewer's original machine-learning models trained on 12,808 randomized controlled trials and is released under the same GNU GPL v3.0 license."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I cite RCT-Reviewer in my research?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RCT-Reviewer provides a built-in citation generator on its homepage supporting APA, Vancouver, MLA, Chicago, Harvard, BibTeX, and RIS formats. The recommended citation references the Zenodo DOI: https://doi.org/10.5281/zenodo.20618338. You should also cite the original RobotReviewer paper."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I find the RCT-Reviewer source code and model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The RCT-Reviewer source code is available on GitHub at https://github.com/aurumz-rgb/RCT-Reviewer, the trained model is hosted on Hugging Face at https://huggingface.co/Aurumz/RCT-Reviewer, and the archived release with DOI is on Zenodo at https://doi.org/10.5281/zenodo.20618338."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can RCT-Reviewer replace human Risk of Bias assessment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. RCT-Reviewer is intended as a third-party reference and tiebreaker for systematic reviews. It is designed to complement human reviewers, not replace them. Standard guidelines still require two independent human reviewers, and RCT-Reviewer can be used when those reviewers disagree."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to assess Risk of Bias of an RCT using RCT-Reviewer",
+        "description": "Step-by-step guide to using RCT-Reviewer for automated Risk of Bias assessment of a randomized controlled trial.",
+        "totalTime": "PT2M",
+        "estimatedCost": {"@type": "MonetaryAmount", "currency": "USD", "value": "0"},
+        "supply": [{"@type": "HowToSupply", "name": "A clinical trial PDF"}],
+        "tool": [{"@type": "HowToTool", "name": "A modern web browser"}],
+        "step": [
+            {"@type": "HowToStep", "position": 1, "name": "Open RCT-Reviewer Online", "text": "Go to https://rct-reviewer.streamlit.app/ to launch the RCT-Reviewer web application."},
+            {"@type": "HowToStep", "position": 2, "name": "Upload a clinical trial PDF", "text": "Upload the randomized controlled trial PDF you want to assess for Risk of Bias."},
+            {"@type": "HowToStep", "position": 3, "name": "Run automated assessment", "text": "RCT-Reviewer runs its machine-learning models trained on 12,808 RCTs to produce automated Risk of Bias judgments."},
+            {"@type": "HowToStep", "position": 4, "name": "Review highlighted evidence snippets", "text": "Inspect the supporting text snippets (87% precision, 90% recall) highlighted directly in the PDF."},
+            {"@type": "HowToStep", "position": 5, "name": "Use as a third-party tiebreaker", "text": "When two independent human reviewers disagree, use RCT-Reviewer's judgment as an objective third opinion to resolve the tie."}
+        ]
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "RCT-Reviewer",
+        "url": "https://rct-reviewer.github.io/",
+        "description": "Automated Risk of Bias assessment of Randomized Controlled Trials.",
+        "inLanguage": "en",
+        "publisher": {
+            "@type": "Organization",
+            "name": "RCT-Reviewer",
+            "url": "https://rct-reviewer.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://rct-reviewer.github.io/assets/banner1.png",
+                "width": "1200",
+                "height": "630"
+            },
+            "sameAs": [
+                "https://github.com/aurumz-rgb/RCT-Reviewer",
+                "https://github.com/RCT-Reviewer",
+                "https://huggingface.co/Aurumz/RCT-Reviewer",
+                "https://doi.org/10.5281/zenodo.20618338",
+                "https://rct-reviewer.streamlit.app/"
+            ]
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://rct-reviewer.streamlit.app/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vihaan Sahu",
+        "url": "https://rct-reviewer.github.io/",
+        "sameAs": [
+            "https://github.com/aurumz-rgb"
+        ],
+    }
+    </script>
+
+
+    <link rel="preload" as="image" href="assets/banner_transparent.png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/banner1.png" fetchpriority="high">
+    <link rel="preload" as="video" href="assets/video.mp4" fetchpriority="high">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/banner1.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+
+        <header class="app-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a href="index.html" class="top-nav__link" aria-current="page">Home</a>
+                <a href="about.html" class="top-nav__link">About</a>
+            </nav>
+
+            <figure class="banner-figure banner-figure--hero">
+                <img src="assets/banner_transparent.png"
+                    alt="RCT-Reviewer — Automated Risk of Bias Assessment Tool for RCTs" title="RCT-Reviewer"
+                    width="730" height="340" class="banner-image" fetchpriority="high">
+
+            </figure>
+
+            <div class="badge-row">
+                <a href="https://www.python.org/" rel="noopener" target="_blank" aria-label="Python 3.12">
+                    <img src="https://img.shields.io/badge/python-3.12-blue" alt="Python 3.12" width="90" height="20">
+                </a>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" rel="noopener" target="_blank"
+                    aria-label="GPL v3.0 License">
+                    <img src="https://img.shields.io/badge/license-GPL%20v3.0-blue" alt="GPL v3.0 License" width="110"
+                        height="20">
+                </a>
+                <a href="https://doi.org/10.5281/zenodo.20618338" rel="noopener" target="_blank"
+                    aria-label="View DOI on Zenodo">
+                    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20618338.svg" alt="DOI" width="90"
+                        height="20">
+                </a>
+                <a href="https://github.com/RCT-Reviewer/RCT-Reviewer-Online/actions/workflows/ci.yml" rel="noopener"
+                    target="_blank" aria-label="View CI workflow status">
+                    <img src="https://github.com/RCT-Reviewer/RCT-Reviewer-Online/actions/workflows/ci.yml/badge.svg"
+                        alt="CI status" width="120" height="20">
+                </a>
+                <a href="https://github.com/RCT-Reviewer/RCT-Reviewer" rel="noopener" target="_blank"
+                    aria-label="Open Source Project">
+                    <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love"
+                        width="120" height="20">
+                </a>
+            </div>
+
+            <p class="app-description">
+                RCT-Reviewer is a modernized, standalone version of RobotReviewer, designed as a third-party reference
+                tool for Risk of Bias assessment. It builds upon RobotReviewer's original machine learning models
+                trained on 12,808 randomized controlled trials (RCTs).
+            </p>
+
+            <div class="cta-group">
+                <a href="https://rct-reviewer.streamlit.app/" class="cta-btn cta-btn--primary" rel="noopener"
+                    target="_blank">
+                    <svg class="cta-btn__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                        aria-hidden="true">
+                        <path d="M9 2L2 7v8a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1V7L9 2z" stroke="currentColor"
+                            stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    Use Online
+                </a>
+                <a href="https://github.com/aurumz-rgb/RCT-Reviewer/" class="cta-btn cta-btn--secondary" rel="noopener"
+                    target="_blank">
+                    <svg class="cta-btn__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                        aria-hidden="true">
+                        <path
+                            d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9c0 3.32 2.15 6.13 5.14 7.12.37.07.51-.16.51-.36v-1.26c-2.09.45-2.53-1.01-2.53-1.01-.34-.87-.84-1.1-.84-1.1-.69-.47.05-.46.05-.46.76.05 1.16.78 1.16.78.68 1.16 1.78.83 2.21.63.07-.49.26-.83.48-1.02-1.69-.19-3.47-.85-3.47-3.77 0-.83.3-1.51.79-2.04-.08-.19-.34-.97.07-2.03 0 0 .64-.21 2.11.79a7.28 7.28 0 013.84 0c1.47-1 2.11-.79 2.11-.79.42 1.06.15 1.84.08 2.03.49.53.79 1.21.79 2.04 0 2.93-1.78 3.58-3.48 3.77.27.24.52.7.52 1.42v2.1c0 .2.13.43.51.36A7.5 7.5 0 0016.5 9c0-4.14-3.36-7.5-7.5-7.5z"
+                            fill="currentColor" />
+                    </svg>
+                    View Source
+                </a>
+                <a href="assets/sample_bias.pdf" class="cta-btn cta-btn--secondary" download>
+                    <svg class="cta-btn__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                        aria-hidden="true">
+                        <path d="M9 12l-4-4h2.5V3h3v5H13l-4 4zm-5 2h10v1.5H4V14z" fill="currentColor" />
+                    </svg>
+                    Sample Bias Highlighted .pdf
+                </a>
+            </div>
+        </header>
+
+        <main id="main">
+
+            <section id="why-use" aria-labelledby="why-heading">
+                <h2 id="why-heading" class="section-heading">Why Use RCT-Reviewer?</h2>
+                <p class="qs-intro">RCT-Reviewer is designed as a <strong>third-party tiebreaker reference</strong> for
+                    systematic reviews. Standard guidelines require two independent human reviewers; when they disagree,
+                    this tool provides an instant, objective, and data-driven third opinion to resolve ties.</p>
+                <ol class="steps-list">
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">1</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Near-Human Accuracy</h3>
+                            <p class="step-item__text">The system achieves <strong>71.0% accuracy</strong> for Risk of
+                                Bias judgments, performing within <strong>&lt;8% of human expert consensus</strong>
+                                (which stands at 78.3%) [1].</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">2</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Highly Precise Extraction</h3>
+                            <p class="step-item__text">In a randomized Cochrane user trial, the models demonstrated
+                                <strong>87% Precision</strong> and <strong>90% Recall</strong> for identifying the exact
+                                text snippets supporting the bias judgment [2].
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">3</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Validated Acceptance</h3>
+                            <p class="step-item__text">Real-world feasibility studies show that human reviewers accept
+                                the tool's judgments at a rate equal to that of their human peers (Risk Ratio 1.02) [3].
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">4</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Rigorous Methodology</h3>
+                            <p class="step-item__text">Developed by Marshall, Kuiper, and Wallace, the models were
+                                trained on <strong>12,808 clinical trial PDFs</strong> using "distant supervision" to
+                                ensure high-quality classification without prohibitive manual labeling costs [1,4].</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <hr class="divider" role="separator">
+
+            <section id="video" aria-label="Video demonstration">
+                <video controls muted loop playsinline id="content-video" class="content-video">
+                    <source src="assets/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <hr class="divider" role="separator">
+
+            <section id="references" aria-labelledby="ref-heading">
+                <h2 id="ref-heading" class="section-heading">References</h2>
+                <ol class="steps-list">
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">[1]</span>
+                        <div class="step-item__content">
+                            <p class="step-item__text">Marshall IJ, Kuiper J, Wallace BC. RobotReviewer: evaluation of a
+                                system for automatically assessing bias in clinical trials. <em>Journal of the American
+                                    Medical Informatics Association</em>. 2016;23(1):193-201. <a
+                                    href="http://dx.doi.org/10.1093/jamia/ocv044" target="_blank" rel="noopener">doi</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">[2]</span>
+                        <div class="step-item__content">
+                            <p class="step-item__text">Soboczenski F, et al. Machine learning to help researchers
+                                evaluate biases in clinical trials: a prospective, randomized user study. <em>BMC
+                                    Medical Informatics and Decision Making</em>. 2019;19(1):96. <a
+                                    href="http://dx.doi.org/10.1186/s12911-019-0814-z" target="_blank"
+                                    rel="noopener">doi</a></p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">[3]</span>
+                        <div class="step-item__content">
+                            <p class="step-item__text">Nussbaumer-Streit B, et al. Automating risk of bias assessment in
+                                systematic reviews: a real-time mixed methods comparison of human researchers to a
+                                machine learning system. <em>BMC Medical Research Methodology</em>. 2022;22:160. <a
+                                    href="http://dx.doi.org/10.1186/s12874-022-01649-y" target="_blank"
+                                    rel="noopener">doi</a></p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">[4]</span>
+                        <div class="step-item__content">
+                            <p class="step-item__text">Marshall I, Kuiper J, Wallace B. Automating Risk of Bias
+                                Assessment for Clinical Trials. <em>IEEE Journal of Biomedical and Health
+                                    Informatics</em>. 2015;19(4):1406-1412. <a
+                                    href="http://dx.doi.org/10.1109/JBHI.2015.2431314" target="_blank"
+                                    rel="noopener">doi</a></p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <hr class="divider" role="separator">
+
+            <section id="citation" aria-labelledby="citation-heading">
+                <h2 id="citation-heading" class="section-heading">Citation</h2>
+                <p class="citation-intro">If you use this software in your research, please cite both RCT-Reviewer and
+                    the original RobotReviewer paper. Select a reference and format below to copy or download your
+                    citation.</p>
+
+                <div class="citation-generator">
+                    <div class="citation-controls">
+                        <div class="cite-control-group">
+                            <label for="cite-ref" class="cite-label">Select Reference:</label>
+                            <select id="cite-ref" class="cite-select">
+                                <option value="rct">RCT-Reviewer</option>
+                                <option value="robot">Original RobotReviewer</option>
+                            </select>
+                        </div>
+                        <div class="cite-control-group">
+                            <label for="cite-style" class="cite-label">Select Format:</label>
+                            <select id="cite-style" class="cite-select">
+                                <option value="apa">APA</option>
+                                <option value="vancouver">Vancouver</option>
+                                <option value="mla">MLA</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="harvard">Harvard</option>
+                                <option value="bibtex">BibTeX</option>
+                                <option value="ris">RIS</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <pre id="cite-output"></pre>
+                    </div>
+
+                    <div class="citation-actions">
+                        <button id="copy-cite" class="cta-btn cta-btn--secondary cite-action-btn">Copy</button>
+                        <button id="download-cite" class="cta-btn cta-btn--secondary cite-action-btn">Download</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="https://github.com/aurumz-rgb/RCT-Reviewer" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/ijmarshall/robotreviewer" target="_blank" rel="noopener">RobotReviewer</a>
+                <a href="https://huggingface.co/Aurumz/RCT-Reviewer" target="_blank" rel="noopener">Hugging Face</a>
+                <a href="https://doi.org/10.5281/zenodo.20618338" target="_blank" rel="noopener">Zenodo</a>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener">GPL-3.0
+                    License</a>
+            </nav>
+            <p>&copy; Vihaan Sahu 2026 - RCT-Reviewer is a derivative work of RobotReviewer under GNU GPL v3.0.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var v = document.getElementById('content-video');
+            if (v) {
+                v.playbackRate = 1.5;
+
+
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            v.play();
+                        } else {
+                            v.pause();
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(v);
+            }
+
+            var citations = {
+                rct: {
+                    apa: "Sahu, V. (2026). RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs). Zenodo. https://doi.org/10.5281/zenodo.20618338",
+                    vancouver: "Sahu V. RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs). Zenodo; 2026. Available from: https://doi.org/10.5281/zenodo.20618338",
+                    mla: "Sahu, V. \"RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs).\" Zenodo, 2026, doi:10.5281/zenodo.20618338.",
+                    chicago: "Sahu, V. 2026. \"RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs).\" Zenodo. https://doi.org/10.5281/zenodo.20618338.",
+                    harvard: "Sahu, V. (2026) 'RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs)', Zenodo. Available at: https://doi.org/10.5281/zenodo.20618338.",
+                    bibtex: "@software{RCT-Reviewer,\n  author    = {Sahu, V.},\n  title     = {RCT-Reviewer: A Modernized, Standalone Tool for\n               Automated Analysis of Clinical Trials (RCTs)},\n  year      = {2026},\n  publisher = {Zenodo},\n  doi       = {10.5281/zenodo.20618338},\n  url       = {https://doi.org/10.5281/zenodo.20618338}\n}",
+                    ris: "TY  - COMP\nAU  - Sahu, V.\nPY  - 2026\nTI  - RCT-Reviewer: A Modernized, Standalone Tool for Automated Analysis of Clinical Trials (RCTs)\nPB  - Zenodo\nDO  - 10.5281/zenodo.20618338\nUR  - https://doi.org/10.5281/zenodo.20618338\nER  - "
+                },
+                robot: {
+                    apa: "Marshall, I. J., Kuiper, J., Banner, E., & Wallace, B. C. (2017). Automating Biomedical Evidence Synthesis: RobotReviewer. Proceedings of the Conference of the Association for Computational Linguistics (ACL), 7–12.",
+                    vancouver: "Marshall IJ, Kuiper J, Banner E, Wallace BC. Automating Biomedical Evidence Synthesis: RobotReviewer. Proceedings of the Conference of the Association for Computational Linguistics (ACL). 2017:7-12.",
+                    mla: "Marshall, Iain J., et al. \"Automating Biomedical Evidence Synthesis: RobotReviewer.\" Proceedings of the Conference of the Association for Computational Linguistics (ACL), 2017, pp. 7-12.",
+                    chicago: "Marshall, Iain J., Joël Kuiper, Edward Banner, and Byron C. Wallace. 2017. \"Automating Biomedical Evidence Synthesis: RobotReviewer.\" Proceedings of the Conference of the Association for Computational Linguistics (ACL). 7–12.",
+                    harvard: "Marshall, I. J. et al. (2017) 'Automating Biomedical Evidence Synthesis: RobotReviewer', Proceedings of the Conference of the Association for Computational Linguistics (ACL), pp. 7–12.",
+                    bibtex: "@article{RobotReviewer2017,\n  title    = \"Automating Biomedical Evidence Synthesis: {RobotReviewer}\",\n  author   = \"Marshall, Iain J and Kuiper, Jo{\\\"e}l and Banner, Edward and Wallace, Byron C\",\n  journal  = \"Proceedings of the Conference of the Association for Computational Linguistics (ACL)\",\n  volume   = 2017,\n  pages    = \"7--12\",\n  month    = jul,\n  year     = 2017,\n}",
+                    ris: "TY  - CONF\nAU  - Marshall, Iain J.\nAU  - Kuiper, Joël\nAU  - Banner, Edward\nAU  - Wallace, Byron C.\nPY  - 2017\nTI  - Automating Biomedical Evidence Synthesis: RobotReviewer\nT2  - Proceedings of the Conference of the Association for Computational Linguistics (ACL)\nSP  - 7\nEP  - 12\nER  - "
+                }
+            };
+
+            var refSelect = document.getElementById('cite-ref');
+            var styleSelect = document.getElementById('cite-style');
+            var output = document.getElementById('cite-output');
+            var copyBtn = document.getElementById('copy-cite');
+            var dlBtn = document.getElementById('download-cite');
+
+            function updateCitation() {
+                var ref = refSelect.value;
+                var style = styleSelect.value;
+                if (citations[ref] && citations[ref][style]) {
+                    output.textContent = citations[ref][style];
+                }
+            }
+
+            if (refSelect && styleSelect) {
+                refSelect.addEventListener('change', updateCitation);
+                styleSelect.addEventListener('change', updateCitation);
+                updateCitation();
+            }
+
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    var text = output.textContent;
+                    navigator.clipboard.writeText(text).then(function () {
+                        var originalText = copyBtn.textContent;
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(function () {
+                            copyBtn.textContent = originalText;
+                        }, 2000);
+                    }).catch(function (err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                });
+            }
+
+            if (dlBtn) {
+                dlBtn.addEventListener('click', function () {
+                    var text = output.textContent;
+                    var style = styleSelect.value;
+                    var ref = refSelect.value;
+                    var filename = ref === 'rct' ? 'RCT-Reviewer' : 'RobotReviewer';
+                    var ext = 'txt';
+
+                    if (style === 'bibtex') ext = 'bib';
+                    if (style === 'ris') ext = 'ris';
+
+                    var element = document.createElement('a');
+                    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                    element.setAttribute('download', filename + '.' + ext);
+                    element.style.display = 'none';
+                    document.body.appendChild(element);
+                    element.click();
+                    document.body.removeChild(element);
+                });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

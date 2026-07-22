@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCT-Reviewer – Risk of Bias Assessment of RCTs</title>
+    <meta name="description"
+        content="Modernized standalone version of RobotReviewer for automated Risk of Bias assessment of RCTs, trained on 12,808 clinical trials.">
+    <meta name="author" content="Vihaan Sahu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rct-reviewer.github.io/about">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RCT-Reviewer – Risk of Bias Assessment of RCTs">
+    <meta property="og:description"
+        content="Modernized standalone version of RobotReviewer for automated Risk of Bias assessment of RCTs.">
+    <meta property="og:url" content="https://rct-reviewer.github.io/about">
+    <meta property="og:image" content="https://rct-reviewer.github.io/assets/banner1.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RCT-Reviewer – Risk of Bias Assessment of RCTs">
+    <meta name="twitter:description"
+        content="Modernized standalone version of RobotReviewer for automated Risk of Bias assessment of RCTs.">
+    <meta name="twitter:image" content="https://rct-reviewer.github.io/assets/banner1.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "RCT-Reviewer",
+        "description": "A modernized, standalone version of RobotReviewer for automated Risk of Bias assessment of Randomized Controlled Trials.",
+        "url": "https://rct-reviewer.github.io/",
+        "applicationCategory": "ScienceApplication",
+        "author": {
+            "@type": "Person",
+            "name": "Vihaan Sahu",
+            "url": "https://github.com/aurumz-rgb"
+        },
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "isAccessibleForFree": true
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "RCT-Reviewer",
+        "description": "A modernized, standalone version of RobotReviewer for automated Risk of Bias assessment of Randomized Controlled Trials.",
+        "url": "https://rct-reviewer.github.io/",
+        "codeRepository": "https://github.com/aurumz-rgb/RCT-Reviewer",
+        "programmingLanguage": "Python",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        "author": {
+            "@type": "Person",
+            "name": "Vihaan Sahu",
+            "url": "https://github.com/aurumz-rgb"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://rct-reviewer.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://rct-reviewer.github.io/about"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preload" as="image" href="assets/banner_transparent.png" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/banner1.png" fetchpriority="high">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/banner1.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        #about-content {
+            font-size: 1.05rem;
+        }
+
+        #about-content .qs-intro,
+        #about-content .step-item__text,
+        #about-content p,
+        #about-content li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        #about-content .section-heading {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        #about-content h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        #about-content h4 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        #about-content .step-item__title {
+            font-size: 1.3rem;
+        }
+
+        #about-content ul,
+        #about-content ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #about-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        #about-content strong {
+            color: var(--text);
+        }
+
+        #about-content hr {
+            margin: 3rem 0;
+        }
+
+        #about-content .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0 2.5rem 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        #about-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            min-width: 600px;
+        }
+
+        #about-content th,
+        #about-content td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        #about-content thead th {
+            background-color: var(--bg-secondary);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        #about-content tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        #about-content tbody tr:nth-child(even) {
+            background-color: rgba(127, 127, 127, 0.05);
+        }
+
+        #about-content td strong {
+            color: var(--green);
+        }
+
+        #about-content pre {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 1rem;
+            overflow-x: auto;
+            color: var(--green);
+            font-family: "Source Code Pro", "SF Mono", "Fira Code", "Cascadia Code", monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        #about-content code {
+            background: rgba(127, 127, 127, 0.15);
+            padding: 0.15em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        #about-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--green);
+        }
+
+        #about-content details {
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            background: var(--bg-secondary);
+        }
+
+        #about-content summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        #about-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding: 0.5rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(127, 127, 127, 0.08);
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        #about-content img[align="right"] {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 480px) {
+            #about-content img[align="right"] {
+                float: none;
+                display: block;
+                margin: 0 auto 1rem auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+
+        <header class="app-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a href="index.html" class="top-nav__link">Home</a>
+                <a href="about.html" class="top-nav__link" aria-current="page">About</a>
+            </nav>
+
+            <figure class="banner-figure banner-figure--hero">
+                <img src="assets/banner_transparent.png" alt="RCT-Reviewer — automated Risk of Bias assessment tool"
+                    title="RCT-Reviewer" width="730" height="340" class="banner-image" fetchpriority="high">
+            </figure>
+        </header>
+
+        <main id="main">
+
+            <section id="about-content" aria-labelledby="about-heading">
+
+                <hr class="divider" role="separator">
+
+                <h3>The Motivation Behind the Revival</h3>
+
+                <p style="margin-bottom: 13px;">The primary motivation for reviving and modernizing RobotReviewer
+                    stemmed from observing a persistent demand among researchers. Many senior evidence synthesis
+                    researchers and methodologists, in particular, expressed a lack of trust in modern Large Language
+                    Models (LLMs). They were concerned about LLMs' tendency to hallucinate and their general-purpose
+                    training, which lacks the specialized rigor required for evidence synthesis with tasks such as risk
+                    of bias.
+                </p>
+                <p style="margin-bottom: 13px;">
+
+                    These senior researchers continued to place their trust in a traditional machine learning model
+                    based software i.e. RobotReviewer, specifically trained to identify risk of bias and PIO
+                    (Population, Intervention, Outcome) domains with extracted evidence, trained using 12,808 RCTs
+                    across various collaborations.
+                </p>
+                <p style="margin-bottom: 13px;">
+                    I personally couldn't let such a valuable software be abandoned. I decided to revive it with a clear
+                    goal: to modernize the pipeline, to allow modern researchers to use it, and to explore the dynamic
+                    between LLMs, traditional ML models, and the seasoned intuition of an experienced researcher,
+                    looking past the current LLM hype.
+                </p>
+
+                <hr class="divider" role="separator">
+
+                <h3>Architecture &amp; Models</h3>
+                <p>This project preserves the machine learning core of the original RobotReviewer while modernizing the
+                    infrastructure.</p>
+
+                <h4>The ML Pipeline</h4>
+                <ol>
+                    <li><strong>PDF Parsing</strong>: Uses <strong>PyMuPDF (fitz)</strong> to extract text and
+                        <strong>spaCy</strong> to segment sentences. No Java/GROBID dependency required.</li>
+                    <li><strong>Feature Extraction</strong>: Uses <code>HashingVectorizer</code> (scikit-learn) to
+                        convert text into high-dimensional sparse matrices.</li>
+                    <li><strong>Classification</strong>:
+                        <ul>
+                            <li>MiniClassifier: A lightweight Linear SVM wrapper that loads pre-trained
+                                <code>.npz</code> weights.</li>
+                            <li><strong>SVM-Only Pipeline</strong>: CNN models have been removed due to TensorFlow
+                                compatibility issues on Python 3.11–3.12 and are not required for accurate predictions.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>Model Redistribution Note</h4>
+                <p>This repository contains joblib-converted model artifacts originally developed in RobotReviewer. The
+                    old pickle model files were compressed and redistributed into <code>.joblib</code> format using the
+                    <code>convert_models.py</code> script and respective directories to ensure better compatibility and
+                    smaller file sizes for modern Python environments.</p>
+
+                <div>
+                    <img src="assets/huggingface.png" width="90" align="right" alt="Hugging Face Logo" />
+                    <h4>Hugging Face Repository</h4>
+                    <p>The users can access the RCT-Reviewer Hugging Face Repository at:<br>
+                        <a href="https://huggingface.co/Aurumz/RCT-Reviewer" target="_blank"
+                            rel="noopener">huggingface.co/Aurumz/RCT-Reviewer</a>
+                    </p>
+                </div>
+
+                <details>
+                    <summary><b>📂 Project File Structure</b></summary>
+                    <pre><code>PROJECT ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+│
+├──  Entry point detected
+│
+├──  File Structure
+├──  .dockerignore
+├──  .gitattributes
+├──  .gitignore
+├──  .zenodo.json
+├──  INFO.md
+├──  LFS push:pull guide.md
+├──  LICENSE.txt
+├──  README.md
+├──  convert_models.py
+│
+├──  data/
+│   ├──  bias/
+│   │   ├──  bias_doc_level.npz
+│   │   ├──  bias_sent_level.npz
+│   │   ├──  bias_ab.npz
+│   │   ├──  bias_prob_clf.pck
+│   │   ├──  domain_clf.pck
+│   │   ├──  overall_clf.pck
+│   │   ├──  drugbank.pck
+│   │   └──  humans/
+│   │       ├──  AC.hdf5 / AC.json / AC.pickle
+│   │       ├──  BOA.hdf5 / BOA.json / BOA.pickle
+│   │       ├──  BPP.hdf5 / BPP.json / BPP.pickle
+│   │       └──  RSG.hdf5 / RSG.json / RSG.pickle
+│   ├──  pico/
+│   │   ├──  I_idf.npz / I_model.npz
+│   │   ├──  O_idf.npz / O_model.npz
+│   │   ├──  P_idf.npz / P_model.npz
+│   ├──  rct/
+│   │   ├──  rct_svm_weights.npz
+│   │   └── ... (CNN artifacts retained but unused)
+│   └──  vocab/
+│       └──  embeddings.200d.trimmed.npz
+│
+├──  rct_reviewer/
+│   ├──  __init__.py
+│   ├──  app.py (Joblib Mode)
+│   ├──  app1.py (Pickle Mode)
+│   ├──  app2.py (HF Hub Mode)
+│   ├──  config.py
+│   ├──  processors/ (bias_robot, pico_robot, rct_robot)
+│   └──  ui/ (streamlit components)
+│
+└──  requirements.txt</code></pre>
+                </details>
+
+                <hr class="divider" role="separator">
+
+                <h3>🔄 Differences from Original RobotReviewer</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Original RobotReviewer (2017)</th>
+                                <th>RCT-Reviewer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Interface</strong></td>
+                                <td>Flask + React</td>
+                                <td><strong>Streamlit</strong> (Pure Python)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PDF Parsing</strong></td>
+                                <td>GROBID (Requires Java/Docker)</td>
+                                <td><strong>PyMuPDF</strong> (Native Python)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Task Queue</strong></td>
+                                <td>Celery + RabbitMQ</td>
+                                <td><strong>Synchronous</strong> (Local execution)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Models</strong></td>
+                                <td>MultiDict</td>
+                                <td><strong>Pydantic</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Deployment</strong></td>
+                                <td>Docker Compose</td>
+                                <td><strong>Local Streamlit Run</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ML Core</strong></td>
+                                <td>SVM / CNN</td>
+                                <td><strong>Same Weights</strong> (SVM prioritized)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Expected Accuracy Difference After CNN Removal</strong></td>
+                                <td>Baseline reference</td>
+                                <td>Estimated negligible reduction (~0–2%)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Core Purpose</strong></td>
+                                <td>Automated Risk of Bias assessment for RCTs</td>
+                                <td>Modernized standalone implementation for automated Risk of Bias assessment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Underlying ML Research</strong></td>
+                                <td>Original ML models trained on 12,808 RCT PDFs</td>
+                                <td>Preserves the same trained ML models and weights</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk of Bias Accuracy</strong></td>
+                                <td>~71.0% agreement accuracy vs expert consensus</td>
+                                <td>Same expected predictive accuracy because the same SVM weights are used</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supporting Text Precision</strong></td>
+                                <td>~87% precision for rationale extraction</td>
+                                <td>Same extraction models retained</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supporting Text Recall</strong></td>
+                                <td>~90% recall</td>
+                                <td>Same extraction models retained</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Model Storage</strong></td>
+                                <td>Pickle / HDF5 / NPZ</td>
+                                <td>Joblib / NPZ / legacy compatibility modes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Compatibility</strong></td>
+                                <td>Compatible with Python 3.6</td>
+                                <td>Modernized for Python 3.12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Note on SVM vs CNN</h4>
+                <p>This project uses a <strong>Linear SVM-only pipeline</strong> instead of the original SVM + CNN
+                    ensemble. CNN models were removed because they depend on TensorFlow/Keras <code>.h5</code> files
+                    which break on Python 3.11–3.12. The SVM model already contains the full predictive signal with
+                    negligible accuracy loss (~0–2%), is faster, and ensures reproducibility across all systems.</p>
+
+                <blockquote>
+                    <strong>Online Deployment:</strong> The default hosted version at <a
+                        href="https://rct-reviewer.streamlit.app" target="_blank"
+                        rel="noopener">rct-reviewer.streamlit.app</a> uses <code>app2.py</code> (Hugging Face Hub). The
+                    repository for the online deployment is <a
+                        href="https://github.com/RCT-Reviewer/RCT-Reviewer-Online" target="_blank"
+                        rel="noopener">RCT-Reviewer/RCT-Reviewer-Online</a>.
+                </blockquote>
+
+                <hr class="divider" role="separator">
+
+                <h2>How to run RCT-Reviewer Offline?</h2>
+
+                <h3>Prerequisites</h3>
+                <p>Before you begin, ensure you have the following installed:</p>
+                <ol>
+                    <li><strong>Python 3.12</strong>: This project is optimized for the latest Python version.</li>
+                    <li><strong>Git</strong>: For cloning the repository.</li>
+                    <li><strong>Git LFS (Large File Storage)</strong>: Required if you plan to run the offline modes
+                        (<code>app.py</code> or <code>app1.py</code>) to download pre-trained ML model weights.</li>
+                </ol>
+                <blockquote>
+                    <strong>⚠️ Note:</strong> This project strictly requires <strong>Python 3.12</strong>. It has been
+                    tested and verified to work perfectly on this version.
+                </blockquote>
+
+                <hr class="divider" role="separator">
+
+                <h3>🛠️ Installation &amp; Usage</h3>
+                <p>This repository contains the main model files along with the code required to run RCT-Reviewer. There
+                    are three ways to run this application locally:</p>
+                <ol>
+                    <li><strong>app.py</strong>: Uses <code>.joblib</code> and <code>.npz</code> files (Modernized local
+                        storage).</li>
+                    <li><strong>app1.py</strong>: Uses <code>.pickle</code>, <code>.pck</code>, and <code>.npz</code>
+                        files (Legacy local storage).</li>
+                    <li><strong>app2.py</strong>: Connects to the Hugging Face Hub repository
+                        <code>Aurumz/RCT-Reviewer</code> (No large local files needed).</li>
+                </ol>
+                <p><strong>[Recommended to run app2.py over other .py to run latest version.]</strong></p>
+
+                <h4>General Setup (Required for all modes)</h4>
+                <p>Clone the repository and set up the virtual environment:</p>
+                <pre><code>git clone https://github.com/aurumz-rgb/RCT-Reviewer.git
+cd RCT-Reviewer
+
+# Create virtual environment
+python3.12 -m venv .venv
+
+# Activate it
+# Linux / macOS:
+source .venv/bin/activate
+# Windows:
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download NLP Model (Required for all modes)
+python -m spacy download en_core_web_sm</code></pre>
+
+                <hr class="divider" role="separator">
+
+                <h4>Running Specific Modes</h4>
+                <p>Choose one of the following methods to run the app.<br><strong>[Recommended to run app2.py over other
+                        .py to run latest version.]</strong></p>
+
+                <details>
+                    <summary><b>Mode 1: app.py (.joblib Local)</b></summary>
+                    <p>This version uses compressed <code>.joblib</code> and <code>.npz</code> files. It requires
+                        downloading model weights via Git LFS.</p>
+                    <p><strong>1. Pull Model Weights:</strong></p>
+                    <pre><code>git lfs install
+git lfs pull</code></pre>
+                    <p><strong>2. Run:</strong></p>
+                    <pre><code>python -m streamlit run rct_reviewer/app.py</code></pre>
+                </details>
+
+                <details>
+                    <summary><b>Mode 2: app1.py (Legacy .pickle Local)</b></summary>
+                    <p>This version uses the original <code>.pickle</code>, <code>.pck</code>, and <code>.npz</code>
+                        files. It also requires Git LFS.</p>
+                    <p><strong>1. Pull Model Weights:</strong></p>
+                    <pre><code>git lfs install
+git lfs pull</code></pre>
+                    <p><strong>2. Run:</strong></p>
+                    <pre><code>python -m streamlit run rct_reviewer/app1.py</code></pre>
+                </details>
+
+                <details>
+                    <summary><b>Mode 3: app2.py (Default mode / Hugging Face Hub)</b></summary>
+                    <p>This version fetches models directly from the Hugging Face Hub. <strong>You do not need to run
+                            <code>git lfs pull</code></strong>.</p>
+                    <p><strong>1. Run:</strong></p>
+                    <pre><code>python -m streamlit run rct_reviewer/app2.py</code></pre>
+                    <p><em>Note: This requires an active internet connection to fetch models from
+                            <code>Aurumz/RCT-Reviewer</code> on Hugging Face.</em></p>
+                </details>
+
+                <hr class="divider" role="separator">
+
+                <h3>🚨 Troubleshooting</h3>
+
+                <p style="margin-bottom: 20px;"><strong>Q: I get
+                        <code>FileNotFoundError: data/pico/P_model.npz</code></strong><br>
+                    <strong>A:</strong> You likely skipped the Git LFS step. Run <code>git lfs pull</code> to download
+                    the actual model weights (only required for <code>app.py</code> and <code>app1.py</code>).
+                </p>
+
+                <p><strong>Q: I get <code>ModuleNotFoundError: No module named 'rct_reviewer'</code></strong><br>
+                    <strong>A:</strong> Ensure you are running the command from the root directory, or set your
+                    <code>PYTHONPATH</code>:
+                </p>
+                <pre><code>export PYTHONPATH=$PYTHONPATH:$(pwd)</code></pre>
+
+                <p><strong>Q: <code>Can't find model 'en_core_web_sm'</code></strong><br>
+                    <strong>A:</strong> You forgot to download the spaCy model. Run:
+                </p>
+                <pre><code>python -m spacy download en_core_web_sm</code></pre>
+
+                <hr class="divider" role="separator">
+
+                <div>
+                    <img src="assets/main_logo_zoomed.png" width="110" align="right" alt="RCT Reviewer Logo" />
+                    <h3>Contributing</h3>
+                    <p>Contributions are welcome! Please see <a
+                            href="https://github.com/aurumz-rgb/RCT-Reviewer/blob/master/CONTRIBUTING.md"
+                            target="_blank" rel="noopener">CONTRIBUTING.md</a> for details on how to suggest additions
+                        or changes.</p>
+                    <a href="https://github.com/aurumz-rgb/RCT-Reviewer/graphs/contributors" target="_blank"
+                        rel="noopener">
+                        <img src="https://contrib.rocks/image?repo=aurumz-rgb/RCT-Reviewer" alt="Contributors" />
+                    </a>
+                </div>
+
+                <hr class="divider" role="separator">
+
+                <h3>Acknowledgements</h3>
+                <p style="margin-bottom: 20px;">
+                    RCT-Reviewer is a modernized version of the original <a
+                        href="https://github.com/ijmarshall/robotreviewer" target="_blank"
+                        rel="noopener">RobotReviewer</a>. I extend my sincere gratitude to the original authors:
+                    <strong>Iain J. Marshall, Joël Kuiper, Edward Banner, and Byron C. Wallace</strong> for their
+                    foundational work in biomedical NLP and for releasing the project as open-source.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    I would also like to thank all contributors and collaborators involved in the RobotReviewer
+                    ecosystem, including the Cochrane Crowd and the research teams at UPenn, Northeastern, and UCL,
+                    whose efforts in data collection and model development made this tool possible.
+                </p>
+                <p>
+                    Additionally, I would like to acknowledge the use of <a href="https://rikaicode.github.io"
+                        target="_blank" rel="noopener">RikaiCode</a> (Code Repository Context Generator) and <a
+                        href="https://huggingface.co/zai-org/GLM-4.7" target="_blank" rel="noopener">GLM-4.7</a>, which
+                    were invaluable in analyzing and understanding the complex logic of the original <a
+                        href="https://github.com/ijmarshall/robotreviewer" target="_blank"
+                        rel="noopener">RobotReviewer</a> codebase, as well as assisting in the development and
+                    modernization of RobotReviewer.
+                </p>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="https://github.com/aurumz-rgb/RCT-Reviewer" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/ijmarshall/robotreviewer" target="_blank" rel="noopener">RobotReviewer</a>
+                <a href="https://huggingface.co/Aurumz/RCT-Reviewer" target="_blank" rel="noopener">Hugging Face</a>
+                <a href="https://doi.org/10.5281/zenodo.20618338" target="_blank" rel="noopener">Zenodo</a>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener">GPL-3.0
+                    License</a>
+            </nav>
+            <p>&copy; Vihaan Sahu 2026 - RCT-Reviewer is a derivative work of RobotReviewer under GNU GPL v3.0.</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
