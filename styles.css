@@ -680,3 +680,35 @@ img {
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
+
+.mirror-section {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.mirror-text {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.75rem;
+}
+
+.youtube-link-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.youtube-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--duration) var(--ease);
+}
+
+.youtube-link:hover {
+    color: var(--text);
+}
