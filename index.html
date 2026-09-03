@@ -646,6 +646,45 @@
                   <em>"Risk of bias was assessed independently by two reviewers. Disagreements were resolved by consensus, or where consensus could not be reached, by using the machine learning tool, RCT-Reviewer (Sahu, 2026) as a third-party tiebreaker. RCT-Reviewer utilizes structured RobotReviewer ML models (Marshall et al., 2017) trained on 12,808 RCTs to provide data-driven bias judgments and highlight supporting text snippets."</em>
               </blockquote>
           </section>
+
+            <hr class="divider" role="separator">
+
+            <section id="validation" aria-labelledby="validation-heading">
+                <h2 id="validation-heading" class="section-heading">Validated Against the Original RobotReviewer</h2>
+                <p class="qs-intro">RCT-Reviewer has been independently validated against the original 2017
+                    RobotReviewer implementation using a <strong>four-tier validation harness</strong>. Key results:</p>
+                <ol class="steps-list">
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">1</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Strong Predictive Validity</h3>
+                            <p class="step-item__text">On 751 human-labelled Clinical Hedges records, RCT-Reviewer
+                                achieved <strong>91.5% accuracy</strong> (94.1% sensitivity, 88.1% specificity, 0.925
+                                F1, 0.966 ROC AUC).</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">2</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">100% Fidelity to the Original</h3>
+                            <p class="step-item__text">Risk of Bias judgments agree with the original 2017 code on all
+                                <strong>6,018 document &times; domain comparisons</strong> (&kappa; = 1.0), with
+                                identical sentence scores and vectorizer outputs.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-item__number" aria-hidden="true">3</span>
+                        <div class="step-item__content">
+                            <h3 class="step-item__title">Robust PDF Parsing</h3>
+                            <p class="step-item__text"><strong>1,000/1,000 PDFs</strong> parsed successfully, with a
+                                median processing time of 1.66 seconds per PDF.</p>
+                        </div>
+                    </li>
+                </ol>
+                <p class="qs-intro" style="margin-top: 1.25rem;">Want more info? The complete methodology, statistical
+                    results and reproducibility data are documented in the <a
+                        href="https://github.com/RCT-Reviewer/Validation#readme" target="_blank" rel="noopener"><strong>Validation
+                        repository README</strong></a>.</p>
             </section>
 
             <hr class="divider" role="separator">
@@ -763,6 +802,7 @@
             <nav class="footer-links" aria-label="Footer navigation">
                 <a href="https://github.com/aurumz-rgb/RCT-Reviewer" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://github.com/ijmarshall/robotreviewer" target="_blank" rel="noopener">RobotReviewer</a>
+                <a href="https://github.com/RCT-Reviewer/Validation" target="_blank" rel="noopener">Validation</a>
                 <a href="https://huggingface.co/Aurumz/RCT-Reviewer" target="_blank" rel="noopener">Hugging Face</a>
                 <a href="https://doi.org/10.5281/zenodo.20618338" target="_blank" rel="noopener">Zenodo</a>
                 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener">GPL-3.0
