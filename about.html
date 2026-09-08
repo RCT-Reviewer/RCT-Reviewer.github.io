@@ -318,8 +318,9 @@
                         <ul>
                             <li>MiniClassifier: A lightweight Linear SVM wrapper that loads pre-trained
                                 <code>.npz</code> weights.</li>
-                            <li><strong>SVM-Only Pipeline</strong>: CNN models have been removed due to TensorFlow
-                                compatibility issues on Python 3.11–3.12 and are not required for accurate predictions.
+                            <li><strong>SVM-Only Pipeline</strong>: CNN models have been removed due to dead
+                                TensorFlow 1.x dependencies. Their removal results in a measured 4.4% F1 drop
+                                (validated in Tier B) while preserving the core predictive signal.
                             </li>
                         </ul>
                     </li>
@@ -438,9 +439,9 @@
                                 <td><strong>Same Weights</strong> (SVM prioritized)</td>
                             </tr>
                             <tr>
-                                <td><strong>Expected Accuracy Difference After CNN Removal</strong></td>
-                                <td>Baseline reference</td>
-                                <td>Estimated negligible reduction (~0–2%)</td>
+                                <td><strong>Measured Accuracy Difference After CNN Removal</strong></td>
+                                <td>Baseline reference (Full Ensemble)</td>
+                                <td>F1 drops 0.969 → 0.925 (Tier B, p &lt; 0.0001)</td>
                             </tr>
                             <tr>
                                 <td><strong>Core Purpose</strong></td>
@@ -455,7 +456,7 @@
                             <tr>
                                 <td><strong>Risk of Bias Accuracy</strong></td>
                                 <td>~71.0% agreement accuracy vs expert consensus</td>
-                                <td>Same expected predictive accuracy because the same SVM weights are used</td>
+                                <td>Identical SVM weights (verified Tier C); 60–76% human concordance (Tier E)</td>
                             </tr>
                             <tr>
                                 <td><strong>Supporting Text Precision</strong></td>
@@ -483,9 +484,9 @@
 
                 <h4>Note on SVM vs CNN</h4>
                 <p>This project uses a <strong>Linear SVM-only pipeline</strong> instead of the original SVM + CNN
-                    ensemble. CNN models were removed because they depend on TensorFlow/Keras <code>.h5</code> files
-                    which break on Python 3.11–3.12. The SVM model already contains the full predictive signal with
-                    negligible accuracy loss (~0–2%), is faster, and ensures reproducibility across all systems.</p>
+                    ensemble. CNN models were removed because they depend on TensorFlow 1.x/Keras <code>.h5</code> files
+                    that cannot run in a maintained environment. The SVM model preserves the core predictive signal with a
+                    measured 4.4% F1 drop (0.925 vs 0.969, Tier B), is faster, and ensures reproducibility across all systems.</p>
 
                 <blockquote>
                     <strong>Online Deployment:</strong> The default hosted version at <a
