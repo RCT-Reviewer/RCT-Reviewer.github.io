@@ -1,4 +1,20 @@
 (function () {
+
+    var themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+
+
+        var currentTheme = document.documentElement.getAttribute('data-theme');
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', function () {
+            var newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+    }
+
     var v = document.getElementById('content-video');
     if (v) {
         v.playbackRate = 1.5;

@@ -491,6 +491,14 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="apple-touch-icon" href="assets/banner1.png">
     <link rel="manifest" href="/site.webmanifest">
+        <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -504,6 +512,7 @@
             <nav class="top-nav" aria-label="Primary navigation">
                 <a href="index.html" class="top-nav__link" aria-current="page">Home</a>
                 <a href="about.html" class="top-nav__link">About</a>
+                <button id="theme-toggle" class="top-nav__link" aria-label="Toggle dark mode">🌙</button>
             </nav>
 
 <figure class="banner-figure banner-figure--hero">
