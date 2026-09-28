@@ -190,7 +190,7 @@
         }
 
         #about-content td strong {
-            color: var(--green);
+            color: var(--text);
         }
 
         #about-content pre {
@@ -199,7 +199,7 @@
             border-radius: var(--radius);
             padding: 1rem;
             overflow-x: auto;
-            color: var(--green);
+            color: var(--text);
             font-family: "Source Code Pro", "SF Mono", "Fira Code", "Cascadia Code", monospace;
             font-size: 0.9rem;
             line-height: 1.6;
@@ -217,6 +217,12 @@
         #about-content pre code {
             background: none;
             padding: 0;
+            color: var(--text);
+        }
+
+        [data-theme="dark"] #about-content pre,
+        [data-theme="dark"] #about-content pre code,
+        [data-theme="dark"] #about-content td strong {
             color: var(--green);
         }
 
@@ -675,6 +681,7 @@ git lfs pull</code></pre>
 
     </div>
 
+    <script src="script.js" defer></script>
 </body>
 
 </html>

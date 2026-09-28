@@ -390,9 +390,13 @@ img {
     background: none;
     padding: 0;
     font-size: 0.82rem;
-    color: var(--green);
+    color: var(--text);
     white-space: pre;
     line-height: 1.7;
+}
+
+[data-theme="dark"] .code-block code {
+    color: var(--green);
 }
 
 .faq-list {
@@ -500,13 +504,13 @@ img {
 
 .footer-links a {
     font-size: 0.82rem;
-    color: #bebebe;
+    color: var(--text-muted);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .footer-links a:hover {
-    color: var(--primary);
+    color: var(--text);
 }
 
 .app-footer>p {
